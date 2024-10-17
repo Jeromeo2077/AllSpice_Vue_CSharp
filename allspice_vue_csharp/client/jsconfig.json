@@ -1,0 +1,23 @@
+{
+  "include": [
+    "./src/**/*.vue",
+    "./src/**/*.js"
+  ],
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "jsx": "preserve",
+    "allowJs": true,
+    "checkJs": true
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

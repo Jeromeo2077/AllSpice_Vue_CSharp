@@ -1,0 +1,9 @@
+version: '3'
+services:
+  app:
+    image: your-dockerhub-username/allspice_vue_csharp:latest
+    restart: unless-stopped
+    env_file:
+      - allspice_vue_csharp-env
+    ports:
+      - "7045:80"
