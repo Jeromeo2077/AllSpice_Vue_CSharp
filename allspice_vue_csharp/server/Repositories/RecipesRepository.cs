@@ -64,7 +64,7 @@ recipes.*,
 accounts.* 
 FROM recipes
 JOIN accounts ON recipes.CreatorId = accounts.id
-WHERE recipe.Id = recipeId;";
+WHERE recipes.Id = recipeId;";
 
     Recipe recipe = _db.Query<Recipe, Account, Recipe>(sql, (recipe, account) =>
     {
