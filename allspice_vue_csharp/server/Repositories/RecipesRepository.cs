@@ -36,5 +36,14 @@ public class RecipesRepository
     return recipe;
   }
 
+  internal List<Recipe> GetAllRecipes()
+  {
+    string sql = @"
+    SELECT * FROM recipes;
+    ;";
+
+    List<Recipe> recipes = _db.Query<Recipe>(sql).ToList();
+    return recipes;
+  }
 }
 
