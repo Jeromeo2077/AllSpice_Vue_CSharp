@@ -17,10 +17,10 @@ public class RecipesRepository
   {
     string sql = @"
     INSERT INTO
-    recipe(title, instructions, img, category, creatorId)
-    VALUES(@Title, @Instructions, @Img, @Category, @CreatorId)
+    recipes(title, instructions, img, category, creatorId)
+    VALUES(@Title, @Instructions, @Img, @Category, @CreatorId);
 
-    SELECT 
+    SELECT
     recipes.*,
     accounts.*
     FROM recipes
