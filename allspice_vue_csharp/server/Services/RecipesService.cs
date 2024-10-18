@@ -1,5 +1,6 @@
 
 
+
 namespace allspice_vue_csharp.Services;
 
 
@@ -23,5 +24,11 @@ public class RecipesService
   {
     List<Recipe> recipes = _repository.GetAllRecipes();
     return recipes;
+  }
+
+  internal Recipe GetRecipeById(int recipeId)
+  {
+    Recipe recipe = _repository.GetRecipeById(recipeId) ?? throw new Exception($"The Recipe ID {recipeId} is invalid");
+    return recipe;
   }
 }
