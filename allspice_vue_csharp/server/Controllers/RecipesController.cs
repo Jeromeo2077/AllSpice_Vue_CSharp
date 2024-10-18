@@ -1,5 +1,7 @@
 namespace allspice_vue_csharp.Controllers;
 
+[ApiController]
+[Route("/api/[controller]")]
 public class RecipesController : ControllerBase
 {
 
