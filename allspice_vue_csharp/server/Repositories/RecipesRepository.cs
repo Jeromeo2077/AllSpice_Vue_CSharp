@@ -39,10 +39,17 @@ public class RecipesRepository
   internal List<Recipe> GetAllRecipes()
   {
     string sql = @"
-    SELECT * FROM recipes;
-    ;";
+    SELECT 
+    recipes.*,
+    accounts.*
+    FROM recipes
+    JOIN accounts on recipes.creatorId = accounts.id;";
 
-    List<Recipe> recipes = _db.Query<Recipe>(sql).ToList();
+    List<Recipe> recipes = _db.Query<Recipe, Account, Recipe>(sql, (recipe, account) =>
+    {
+      recipe.Creator = account;
+      return recipe;
+    }).ToList();
     return recipes;
   }
 }
