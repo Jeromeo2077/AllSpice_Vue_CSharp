@@ -13,6 +13,8 @@ public class RecipesRepository
   }
   private readonly IDbConnection _db;
 
+
+
   internal Recipe CreateRecipe(Recipe recipeData)
   {
     string sql = @"
@@ -62,13 +64,13 @@ recipes.*,
 accounts.* 
 FROM recipes
 JOIN accounts ON recipes.CreatorId = accounts.id
-WHERE recipe.id == recipeId;";
+WHERE recipe.Id = recipeId;";
 
     Recipe recipe = _db.Query<Recipe, Account, Recipe>(sql, (recipe, account) =>
     {
       recipe.Creator = account;
       return recipe;
-    }, recipeId).FirstOrDefault();
+    }, new { recipeId }).FirstOrDefault();
 
     return recipe;
   }
