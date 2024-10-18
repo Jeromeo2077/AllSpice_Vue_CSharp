@@ -43,13 +43,14 @@ public class RecipesRepository
     recipes.*,
     accounts.*
     FROM recipes
-    JOIN accounts on recipes.creatorId = accounts.id;";
+    JOIN accounts on recipes.CreatorId = accounts.id;";
 
     List<Recipe> recipes = _db.Query<Recipe, Account, Recipe>(sql, (recipe, account) =>
     {
       recipe.Creator = account;
       return recipe;
     }).ToList();
+
     return recipes;
   }
 }
