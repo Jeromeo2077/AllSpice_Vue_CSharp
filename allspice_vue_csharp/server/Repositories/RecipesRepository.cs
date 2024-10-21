@@ -1,5 +1,6 @@
 
 using System.Collections.Frozen;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace allspice_vue_csharp.Repositories;
 
@@ -102,6 +103,22 @@ WHERE recipes.Id = @recipeId;";
     return recipe;
   }
 
+  internal void DeleteRecipe(int recipeId)
+  {
+    string sql = @"
+   DELETE * FROM recipes WHERE recipe.id = recipeId LIMIT 1;";
 
+    int rowsAffected = _db.Execute(sql, new { recipeId });
+
+    if (rowsAffected == 0)
+    {
+      throw new Exception("Error: No recipes were deleted!");
+    }
+
+    if (rowsAffected > 1)
+    {
+      throw new Exception("Error: Multiple recipes were deleted!");
+    }
+  }
 }
 

@@ -33,6 +33,7 @@ public class RecipesController : ControllerBase
     }
   }
 
+
   [HttpGet]
   public ActionResult<List<Recipe>> GetAllRecipes()
   {
@@ -47,6 +48,7 @@ public class RecipesController : ControllerBase
     }
   }
 
+
   [HttpGet("{recipeId}")]
   public ActionResult<Recipe> GetRecipeById(int recipeId)
   {
@@ -60,6 +62,7 @@ public class RecipesController : ControllerBase
       return BadRequest(exception.Message);
     }
   }
+
 
   [Authorize]
   [HttpPut("{recipeId}")]
@@ -77,5 +80,21 @@ public class RecipesController : ControllerBase
     }
   }
 
+  [Authorize]
+  [HttpDelete("{recipeId}")]
+  public async Task<ActionResult<Recipe>> DeleteRecipe(int recipeId)
+  {
+    try
+    {
+      Account userInfo = await _auth0Provider.GetUserInfoAsync<Account>(HttpContext);
+      string message = _recipesService.DeleteRecipe(recipeId, userInfo.Id);
+      return Ok(message);
 
+    }
+    catch (Exception exception)
+    {
+
+      return BadRequest(exception.Message);
+    }
+  }
 }

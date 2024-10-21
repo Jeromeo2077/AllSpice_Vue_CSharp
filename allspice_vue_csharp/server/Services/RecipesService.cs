@@ -1,6 +1,8 @@
 
 
 
+using Microsoft.AspNetCore.Hosting.StaticWebAssets;
+
 namespace allspice_vue_csharp.Services;
 
 
@@ -49,5 +51,19 @@ public class RecipesService
 
     recipe = _repository.UpdateRecipe(recipe);
     return recipe;
+  }
+
+
+  internal string DeleteRecipe(int recipeId, string userInfoId)
+  {
+    Recipe recipe = GetRecipeById(recipeId);
+
+    if (recipe.CreatorId != userInfoId)
+    {
+      throw new Exception("Invalid Request: Unauthorized Access");
+    }
+
+    _repository.DeleteRecipe(recipeId);
+    return $"{recipe.Title} was deleted!";
   }
 }
