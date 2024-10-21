@@ -74,5 +74,34 @@ WHERE recipes.Id = @recipeId;";
 
     return recipe;
   }
+
+  internal Recipe UpdateRecipe(Recipe recipe)
+  {
+    string sql = @"
+    UPDATE recipes
+    SET
+    title = @Title,
+    instructions = @Instructions,
+    img = @Img,
+    category = @Category
+    WHERE Id = @Id
+    LIMIT 1;";
+
+    int rowsAffected = _db.Execute(sql, recipe);
+
+    if (rowsAffected == 0)
+    {
+      throw new Exception("Error: No recipes were updated!");
+    }
+
+    if (rowsAffected > 1)
+    {
+      throw new Exception("Error: Multiple recipes were updated!");
+    }
+
+    return recipe;
+  }
+
+
 }
 
