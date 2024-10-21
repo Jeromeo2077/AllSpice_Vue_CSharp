@@ -1,0 +1,1 @@
+namespace allspice_vue_csharp.Repositories;
