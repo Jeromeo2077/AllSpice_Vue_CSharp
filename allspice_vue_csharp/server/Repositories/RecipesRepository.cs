@@ -106,7 +106,7 @@ WHERE recipes.Id = @recipeId;";
   internal void DeleteRecipe(int recipeId)
   {
     string sql = @"
-   DELETE FROM recipes WHERE recipe.id = recipeId LIMIT 1;";
+   DELETE FROM recipes WHERE recipes.id = recipeId LIMIT 1;";
 
     int rowsAffected = _db.Execute(sql, new { recipeId });
 
