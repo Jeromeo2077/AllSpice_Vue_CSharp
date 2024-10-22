@@ -33,9 +33,12 @@ CREATE Table ingredients (
     updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     name VARCHAR(255) NOT NULL,
     quantity VARCHAR(255) NOT NULL,
+    creatorId VARCHAR(255) NOT NULL,
     recipeID INT NOT NULL,
     FOREIGN KEY (recipeID) REFERENCES recipes (id) ON DELETE CASCADE
 )
+
+DROP TABLE ingredients;
 
 INSERT into
     ingredients (name, quantity, recipeId)
