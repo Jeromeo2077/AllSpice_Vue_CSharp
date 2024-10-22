@@ -39,4 +39,4 @@ CREATE Table ingredients (
 
 INSERT into
     ingredients (name, quantity, recipeId)
-VALUES (Cheese, 1 slice, 5);
+VALUES ("Cheese", "1 slice", 5);

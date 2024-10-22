@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Mvc.Diagnostics;
-
 namespace allspice_vue_csharp.Controllers;
 
 [ApiController]
