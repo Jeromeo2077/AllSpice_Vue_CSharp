@@ -1,3 +1,4 @@
+
 namespace allspice_vue_csharp.Services;
 
 public class IngredientsService
@@ -8,4 +9,10 @@ public class IngredientsService
     _ingredientsRespository = ingredientsRepository;
   }
   private readonly IngredientsRepository _ingredientsRespository;
+
+  internal Ingredient CreateIngredient(Ingredient ingredientData)
+  {
+    Ingredient ingredient = _ingredientsRespository.CreateIngredient(ingredientData);
+    return ingredient;
+  }
 }
