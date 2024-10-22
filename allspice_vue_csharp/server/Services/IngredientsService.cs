@@ -1,4 +1,3 @@
-
 namespace allspice_vue_csharp.Services;
 
 public class IngredientsService

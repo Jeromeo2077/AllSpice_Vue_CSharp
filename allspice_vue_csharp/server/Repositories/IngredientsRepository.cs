@@ -1,5 +1,3 @@
-using System.Data.Common;
-
 namespace allspice_vue_csharp.Repositories;
 
 public class IngredientsRepository
