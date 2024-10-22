@@ -15,7 +15,7 @@ public class IngredientsRepository
   internal Ingredient CreateIngredient(Ingredient ingredientData)
   {
     string sql = @"
-INSERT into 
+INSERT INTO 
 ingredients(name, quantity, recipeId)
 VALUES(@Name, @Quantity, @RecipeId);
 

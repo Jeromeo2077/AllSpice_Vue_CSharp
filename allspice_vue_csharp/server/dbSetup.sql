@@ -36,3 +36,7 @@ CREATE Table ingredients (
     recipeID INT NOT NULL,
     FOREIGN KEY (recipeID) REFERENCES recipes (id) ON DELETE CASCADE
 )
+
+INSERT into
+    ingredients (name, quantity, recipeId)
+VALUES (Cheese, 1 slice, 5);
