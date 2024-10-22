@@ -14,8 +14,8 @@ public class IngredientsRepository
   {
     string sql = @"
 INSERT INTO 
-ingredients(name, quantity, recipeId)
-VALUES(@Name, @Quantity, @RecipeId);
+ingredients(name, quantity, recipeId, creatorId, creator)
+VALUES(@Name, @Quantity, @RecipeId, @CreatorId, @Creator);
 
 SELECT * From ingredients WHERE id = LAST_INSERT_ID();";
 
