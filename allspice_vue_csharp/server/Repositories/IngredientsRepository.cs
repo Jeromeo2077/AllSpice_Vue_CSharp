@@ -17,7 +17,7 @@ public class IngredientsRepository
     string sql = @"
 INSERT into 
 ingredients(name, quantity, creatorId, recipeId)
-values(@Name, @Quantity, @CreatorId @RecipeId);
+values(@Name, @Quantity, @CreatorId, @RecipeId);
 
 SELECT
 ingredients.*,
